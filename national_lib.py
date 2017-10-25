@@ -1,7 +1,7 @@
 import urllib.request
 
 
-api_url = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'
+api_url = 'http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=isbn='
 
 
 def nl_isbn(isbn):
