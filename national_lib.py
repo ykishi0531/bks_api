@@ -1,6 +1,6 @@
 import urllib.request
 import re
-from xml.etree import ElementTree
+import xml.etree.ElementTree as ET
 
 
 api_url = 'http://iss.ndl.go.jp/api/sru?operation=searchRetrieve&query=isbn='
@@ -11,8 +11,9 @@ def nl_isbn(isbn):
 	
 	res = urllib.request.urlopen(api_url + isbn)
 	xml_data = res.read()
-	xml_data = re.sub(r'\d', 'l', xml_data)
+	xml = '<?xml version="1.0" encoding="UTF-8"><test>aaa</test>'
+	# ET.fromstring(xml)
 	
-	root = ElementTree.fromstring(xml_data)
-	return xml_data
+	root = ET.fromstring(xml_data)
+	return root.tag
 
